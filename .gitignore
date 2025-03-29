@@ -7,7 +7,7 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-serviceAccountKey.json
+server/serviceAccountKey.json
 node_modules
 dist
 dist-ssr
