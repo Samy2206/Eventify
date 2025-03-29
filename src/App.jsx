@@ -5,11 +5,12 @@ import About from './components/About'
 import NavBar from './components/NavBar'
 import StudentLogin from './components/StudentLogin'
 import StudentRegister from './components/StudentRegister'
+import EventPage from './components/MainPage/EventPage'
 
 
 function App() {
 
-  const Layout = ()=>{
+  const LayoutUnverified = ()=>{
     return(
 
       <>
@@ -23,7 +24,7 @@ function App() {
 const router = createBrowserRouter([
   {
     path:'/',
-    element:<Layout/>,
+    element:<LayoutUnverified/>,
     children:[
       {
         path:'/',
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
         element:<StudentRegister/>
       }
     ],
+  },
+  {
+    path:'/EventPage',
+    element:<EventPage/>,
   }
 ])
 
