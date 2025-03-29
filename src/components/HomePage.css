@@ -1,0 +1,79 @@
+@font-face {
+  font-family: "LogoNameFont";
+  src: url(../assets/BoostPlayer_PERSONAL_USE_ONLY.otf);
+}
+.home-container {
+  position: relative;
+  width: 100vw;
+  height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* background: linear-gradient(185deg, rgba(0, 0, 0, 1) 0%, rgba(82,38,38,1) 100%); */
+  overflow: hidden;
+}
+
+/* Expanding and shrinking circle */
+.circle-animation {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: #3a1c71; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to left,
+    #ffaf7b,
+    #d76d77,
+    #3a1c71
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to left,
+    #ffaf7b,
+    #d76d77,
+    #3a1c71
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Welcome text at the top */
+.welcome-text {
+  position: absolute;
+  top: 10%;
+  text-align: center;
+  /* color: white; */
+}
+
+.catchy-line {
+  font-family: "LogoNameFont";
+  position: absolute;
+  text-align: center;
+  font-size: 2.5rem;
+  /* color: white; */
+  bottom: 20%;
+}
+
+.welcome-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 5px;
+}
+
+.welcome-text p {
+  font-size: 1.2rem;
+}
+
+/* Logo centered */
+.eventify-logo {
+  width: 350px;
+  height: auto;
+}
+
+.blurbg {
+  background: rgba(255, 255, 255, 0.04); /* Transparent background */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px); /* Frosted glass effect */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+}

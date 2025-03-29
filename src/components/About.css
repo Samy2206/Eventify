@@ -1,0 +1,97 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* Ensure full height layout */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  background: #3a1c71; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #ffaf7b,
+    #d76d77,
+    #3a1c71
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #ffaf7b,
+    #d76d77,
+    #3a1c71
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: Arial, sans-serif;
+}
+
+/* Flex container for about page */
+.about-page {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 56px); /* Ensures the full height of the viewport */
+  background: rgba(255, 255, 255, 0.04); /* Transparent background */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px); /* Frosted glass effect */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+}
+
+/* Main content should expand */
+.about-container {
+  max-width: 900px;
+  margin: 0px auto;
+  padding: 20px;
+  /* color: white; */
+  flex: 1; /* Takes up available space to push footer down */
+}
+
+/* Headings */
+.about-container h1 {
+  font-size: 2.5rem;
+  color: #ffcc00;
+  margin-bottom: 15px;
+}
+
+.about-container h2 {
+  font-size: 1.8rem;
+  color: #ffcc00;
+  margin-top: 20px;
+}
+
+/* Paragraphs */
+.about-container p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  text-align: left; /* Align text to the left */
+}
+
+/* Lists */
+.about-container ul,
+.about-container ol {
+  text-align: left;
+  padding-left: 20px;
+  max-width: 800px;
+}
+
+.about-container ul li,
+.about-container ol li {
+  font-size: 1rem;
+  margin: 10px 0;
+  padding-left: 5px;
+}
+
+/* Footer stays at the bottom */
+footer {
+  text-align: center;
+  padding: 15px;
+  font-size: 0.9rem;
+  color: white;
+  background: rgba(0, 0, 0, 0.85);
+  width: 100vw;
+  position: relative;
+}

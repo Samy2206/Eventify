@@ -1,0 +1,56 @@
+@font-face {
+  font-family: "LogoName";
+  src: url(../assets/BoostPlayer_PERSONAL_USE_ONLY.otf);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul {
+  display: flex;
+  gap: 30px;
+  padding-right: 30px;
+  list-style-type: none;
+  font-size: 20px;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+ul select {
+  background: inherit;
+  /* color: white; */
+  font-size: 19px;
+}
+ul select a option{
+  color: black;
+}
+a:visited {
+  color: black;
+}
+.NavBar_Container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  height: 56px;
+  background: rgba(0, 0, 0,0.6);
+  background: #3A1C71;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #FFAF7B, #D76D77, #3A1C71);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #FFAF7B, #D76D77, #3A1C71); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+  position: fixed;
+  padding-right: 20px;
+}
+select {
+  background-color: inherit;
+  border: none;
+  outline: none;
+}
+.logo {
+  font-family: "LogoName";
+  margin-left: 20px;
+  font-size: 40px;
+  color: black;
+}

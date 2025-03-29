@@ -1,0 +1,121 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+@font-face {
+    font-family: "EventifyLogoFont";
+    src: url(../assets/BoostPlayer_PERSONAL_USE_ONLY.otf);
+}
+body {
+  height: 100vh;
+}
+.login-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 200px;
+  height: calc(100vh - 56px);
+  background: rgba(255, 255, 255, 0.04); /* Transparent background */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px); /* Frosted glass effect */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+}
+.gap {
+  background-color: black;
+  height: 300px;
+  width: 2px;
+}
+
+.login-container,
+.register-container {
+  display: flex;
+  height: 300px;
+  justify-content: start;
+  flex-direction: column;
+  width: 400px;
+  border-radius: 20px;
+  align-items: center; /* Center items */
+  gap: 20px;
+}
+.login-page-inner {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.2); /* Transparent background */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px); /* Frosted glass effect */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+  padding: 20px;
+  border-radius: 20px;
+}
+a h4:hover {
+  color: red;
+}
+
+.login-side-image img {
+  height: 600px;
+  border-radius: 20px 0px 0px 20px;
+}
+
+/* Apply fixed width to input fields and buttons */
+.login-container input,
+.register-container input,
+.login-container button,
+.register-container button {
+  width: 100%; /* Makes them take full width of .login-container */
+  max-width: 300px; /* Prevents them from getting too large */
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 15px;
+  border: 1px solid;
+  background: inherit;
+}
+
+.login-container input:hover,
+.register-container input:hover {
+  border: 2px solid black;
+}
+.login-container input,
+.register-container input {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.login-container button,
+.register-container button {
+  background-image: linear-gradient(
+    to right,
+    #77a1d3 0%,
+    #79cbca 51%,
+    #77a1d3 100%
+  );
+}
+.login-container button,
+.register-container button {
+  width: 100px;
+  margin: 10px;
+  /* padding: 15px 45px; */
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+}
+
+.login-container button:hover,
+.register-container button:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+.Eventify-logo{
+    font-size: 70px;
+    font-family: "EventifyLogoFont";
+    margin-top: 100px;
+    margin-bottom: 90px;
+}
