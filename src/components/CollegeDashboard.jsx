@@ -22,7 +22,7 @@ const CollegeDashboard = () => {
 
     const handleAddEvent = async () => {
         try {
-            const isVerified = await fetch(`http://localhost:5000/api/verify/${collegeUid}`, {
+            const isVerified = await fetch(`http://localhost:5000/user/college/verify/${collegeUid}`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",

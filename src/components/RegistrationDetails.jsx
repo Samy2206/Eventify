@@ -103,7 +103,7 @@ const RegistrationDetails = () => {
 
       if(response.ok)
       {
-        Navigate('/EventPage',{ state: { uid: data.uid } })
+        Navigate('/CollegeDashBoard',{ state: { uid: data.uid } })
       }
     } catch (e) {
       console.log(e);
