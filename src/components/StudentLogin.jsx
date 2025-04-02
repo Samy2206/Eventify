@@ -17,7 +17,7 @@ const StudentLogin = () => {
       const userCredentials = await signInWithEmailAndPassword(auth, email, password)
       const token = await userCredentials.user.getIdToken()
 
-      const response = await fetch("http://localhost:5000/user/login", {
+      const response = await fetch("http://localhost:5000/user/student/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -43,7 +43,7 @@ const StudentLogin = () => {
       const token = await userCredentials.user.getIdToken()
       const uid = userCredentials.user.uid
 
-      const response = await fetch('http://localhost:5000/user/register', {
+      const response = await fetch('http://localhost:5000/user/student/register', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -84,8 +84,8 @@ const StudentLogin = () => {
           <div className="register-container">
             <h2>Registration</h2>
             <input type="text" name="name" id="name" placeholder='Name' onChange={(e) => { setName(e.target.value) }} />
-            <input type="email" name="email" id="email" placeholder='email' onChange={(e) => { setEmail(e.target.value) }} />
-            <input type="password" name="password" id="password" placeholder='password' onChange={(e) => { setPassword(e.target.value) }} />
+            <input type="email" name="email" id="email" placeholder='Email' onChange={(e) => { setEmail(e.target.value) }} />
+            <input type="password" name="password" id="password" placeholder='Password' onChange={(e) => { setPassword(e.target.value) }} />
             <button onClick={handleRegister}>Register</button>
           </div>
         </div>

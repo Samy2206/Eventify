@@ -1,0 +1,91 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.details-page {
+  height: calc(100vh - 56px);
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+}
+.wrapper-class{
+    display: flex;
+    flex-direction: row;
+    flex: 9;
+    justify-content: center;
+    align-items: start;
+    padding-top: 100px;
+}
+.other-details-inner{
+    display: flex;
+    flex-direction: row;
+    flex: 2;
+}
+.logo-upload{
+    padding: 15px;
+}
+.other-details{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.college-details{
+
+    flex:2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.admin-details{
+    flex: 1;   
+    display: flex; 
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
+.verification-details{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.next-button{
+flex: 1;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+
+
+.innerDetails{
+    width: 90%;
+    padding: 30px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.innerDetails input,textarea,select{
+    max-width: 400px;
+}
+
+.next-button button{
+    font-size: 30px;
+    margin-bottom: 50px;
+}
+.next-button button:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+
+
+.give-Margin{
+    margin-bottom: 20px;
+}

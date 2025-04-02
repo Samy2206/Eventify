@@ -1,0 +1,48 @@
+.college-dashboard{
+    height: calc(100vh - 56px);
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+    gap: 20px; /* Equal spacing between items */
+    padding: 20px;
+  }
+  
+  .grid-item {
+    background-color: #f8f9fa;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  .floating-add-button {
+    height: 60px; /* Adjust size */
+    width: 60px; /* Ensure proper aspect */
+    border-radius: 50%;
+    background-image: linear-gradient(135deg, #FEB692 10%, #EA5455 100%);
+    border: none;
+    position: fixed;
+    bottom: 20px; /* Reduce bottom margin */
+    right: 20px; /* Reduce right margin */
+    box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.3);
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000; /* Ensure it's above other elements */
+    transition: all 0.3s ease-in-out;
+}
+
+.floating-add-button:hover {
+    transform: scale(1.1);
+}
+
+.floating-add-button svg { 
+    font-size: 24px; /* Adjust icon size */
+    color: white; /* Ensure visibility */
+}
+
+.vError{
+    color: red;
+}

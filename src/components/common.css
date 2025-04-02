@@ -1,0 +1,48 @@
+.common-input-style input,textarea,select{
+    width: 100%; /* Makes them take full width of .login-container */
+  /* max-width: 300px;  */
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 15px;
+  border: 1px solid;
+  background: inherit;
+}
+
+.common-blurbg {
+  background: rgba(255, 255, 255, 0.04); /* Transparent background */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px); /* Frosted glass effect */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+}
+
+
+.common-inner-blur{
+  background: rgba(255, 255, 255, 0.2); /* Transparent background */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px); /* Frosted glass effect */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.common-button-style{
+  background-image: linear-gradient(
+    to right,
+    #77a1d3 0%,
+    #79cbca 51%,
+    #77a1d3 100%
+  );
+  width: 100px;
+  margin: 10px;
+  padding: 5px;
+  /* padding: 15px 45px; */
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+}
+

@@ -1,0 +1,57 @@
+.event-card{
+    height: 450px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    
+   background: rgba(255, 255, 255, 0.2); /* Transparent background */
+  border: 1px solid rgba(0, 0, 0, 0.649);
+  backdrop-filter: blur(10px); /* Frosted glass effect */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.event-card img{
+    height: 150px;
+    border: 2px double black;
+}
+
+.details{
+    border-bottom: 1px double black;
+    border-top: 1px double black;
+    height: 150px;
+    overflow: auto;
+}
+
+
+
+.event-card .buttons button {background-color: #FBAB7E;
+    background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+    }
+.event-card .buttons button {
+   /* margin: 10px; */
+   /* padding: 15px 45px; */
+   /* margin-top: 20px; */
+   padding: 5px;
+   text-align: center;
+   text-transform: uppercase;
+   transition: 0.5s;
+   background-size: 200% auto;
+   color: white;            
+   box-shadow: 0 0 20px #eee;
+   border-radius: 5px;
+   display: block;
+ }
+.event-card .buttons{
+    display: flex;
+    justify-content: space-around;
+    height: 80px;
+    align-items: center;
+}
+ .event-card .buttons button:hover {
+   background-position: right center; /* change the direction of the change here */
+   color: #fff;
+   text-decoration: none;
+ }

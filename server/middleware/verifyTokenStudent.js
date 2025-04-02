@@ -1,6 +1,6 @@
 const admin = require('firebase-admin')
 
-const verifyToken = async (req, res, next) => {
+const verifyTokenStudent = async (req, res, next) => {
     try {
         const authHeader = req.headers.authorization
         if (!authHeader || !authHeader.startsWith("Bearer "))
@@ -21,4 +21,4 @@ const verifyToken = async (req, res, next) => {
     }
 }
 
-module.exports = verifyToken
+module.exports = verifyTokenStudent
