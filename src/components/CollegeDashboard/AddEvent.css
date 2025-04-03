@@ -1,0 +1,126 @@
+.add-event-page {
+    min-height: calc(100vh - 56px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 50px;
+    align-items: center;
+  }
+  
+  .event-details,
+  .participation-criteria {
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    gap: 20px;
+  }
+  
+  .common-inner-blur {
+    flex: 1;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    min-height: 250px;
+  }
+  
+  .add-event-page input:not([type="radio"]),
+  select,
+  textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 15px;
+    border: 1px solid;
+    background: inherit;
+  }
+  
+  .date-time input,
+  .participation-criteria-left input,
+  textarea:not(.extra-details textarea),
+  select,.event-schedule-info div input,
+  .participation-criteria-right input[type="number"] {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 15px;
+    width: 100%;
+    font-size: 16px;
+  }
+  
+  .add-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .add-button button {
+    background-image: linear-gradient(
+      to right,
+      #77a1d3 0%,
+      #79cbca 51%,
+      #77a1d3 100%
+    );
+    width: 100px;
+    margin: 10px;
+    padding: 5px;
+    /* padding: 15px 45px; */
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+    height: 40px;
+    font-size: 25px;
+    margin-bottom: 50px;
+  }
+  
+  .add-button button:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .date-time-inner{
+    display: flex;
+  }
+
+  .add-event-page label{
+    font-size: 15px;
+    font-weight: bold;
+  }
+
+  .add-event-page ::placeholder{
+    color: rgba(0, 0, 0, 0.819);
+  }
+
+  .extra-details{
+    height: 100%;
+   
+
+    flex: 1;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+  }
+  .extra-details textarea{
+    min-width: calc(100vw - 450px)
+  }
+

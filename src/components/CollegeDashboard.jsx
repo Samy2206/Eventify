@@ -2,7 +2,7 @@ import React from 'react'
 import './common.css'
 import './CollegeDashboard.css'
 import EventCard from './CollegeDashboard/EventCard'
-import { useState } from 'react'
+import { useState , useEffect } from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { useLocation } from 'react-router-dom'
@@ -16,9 +16,16 @@ const CollegeDashboard = () => {
     const Navigate = useNavigate()
     const location = useLocation();
     const collegeUid = location.state?.uid || "";
-    const [vError,setVError] = useState("")
+    const [vError,setVError] = useState(false)
 
     const [events, setEvents] = useState([])
+
+
+    useEffect (()=>{
+         handleAddEvent()
+    },[])
+
+   
 
     const handleAddEvent = async () => {
         try {
@@ -31,13 +38,13 @@ const CollegeDashboard = () => {
     
             if (!isVerified.ok) {
                 const errorData = await isVerified.json(); // Get error details from backend
-                setVError(errorData.message)
+                setVError(true)
                 throw new Error(`Error: ${isVerified.status} - ${errorData.message || isVerified.statusText}`);
             }
     
             const data = await isVerified.json();
             console.log("Verification Response:", data);
-            Navigate('AddEvent')
+            
         } catch (error) {
             console.error("Error verifying college:", error);
         }
@@ -47,16 +54,27 @@ const CollegeDashboard = () => {
     return (
         <div className='common-blurbg , college-dashboard'>
         
-        {vError && <div className="vError">
-        <h1>{vError}</h1>
-        </div>}
+        {vError ? (  <div className="outerError">
+            <div className="vError">
+    <h1 className="error-heading">Verification Under Process</h1>
+    <div className="loading-dots">
+        <span>.</span>
+        <span>.</span>
+        <span>.</span>
+    </div>
+</div>
+</div>
+) : (
+            <>
             <h3>College Dashboard</h3>
             <div className="grid-container">
                 {events.map((event) => (
                     <EventCard key={event.id} event={event} />
                 ))}
             </div>
-            <button onClick={handleAddEvent} className='floating-add-button'><FontAwesomeIcon icon={faPlus} className='fa-icon-add' /></button>
+            <button onClick={()=>Navigate('AddEvent')} className='floating-add-button'><FontAwesomeIcon icon={faPlus} className='fa-icon-add' /></button>
+            </>
+        )}
         </div>
     )
 }

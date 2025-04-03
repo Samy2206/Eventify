@@ -1,4 +1,4 @@
-.common-input-style input,textarea,select{
+.common-input-style{
     width: 100%; /* Makes them take full width of .login-container */
   /* max-width: 300px;  */
   padding: 10px;
