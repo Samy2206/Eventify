@@ -30,8 +30,8 @@
   }
   
   .add-event-page input:not([type="radio"]),
-  select,
-  textarea {
+  .add-event-page select,
+  .add-event-page textarea {
     width: 100%;
     padding: 10px;
     font-size: 16px;
@@ -42,8 +42,8 @@
   
   .date-time input,
   .participation-criteria-left input,
-  textarea:not(.extra-details textarea),
-  select,.event-schedule-info div input,
+  .add-event-page textarea:not(.extra-details textarea),
+  .add-event-page select,.event-schedule-info div input,
   .participation-criteria-right input[type="number"] {
     background: rgba(255, 255, 255, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -119,6 +119,10 @@
     flex-direction: column;
     gap: 15px;
 
+  }
+
+  .other-details{
+    flex: 2;
   }
   .extra-details textarea{
     min-width: calc(100vw - 450px)
