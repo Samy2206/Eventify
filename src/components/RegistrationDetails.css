@@ -71,7 +71,7 @@ align-items: center;
     align-items: center;
 
 }
-.innerDetails input,textarea,select{
+.innerDetails input,.details-page textarea, .details-page select{
     max-width: 400px;
 }
 

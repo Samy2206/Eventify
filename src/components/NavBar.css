@@ -47,7 +47,7 @@ ul {
   font-size: 20px;
   margin-right: 10px;
 }
-ul li{
+.NavBar_Container ul li{
   height: 45px;
   font-size: 15px;
   text-align: center;
@@ -55,6 +55,7 @@ ul li{
   padding: 3px;
   border: 1px solid black;
   border-radius: 10px;
+  padding-top: 10px;
 }
 
 
@@ -72,6 +73,7 @@ ul li{
   color: black;
   cursor: pointer;
   padding: 5px;
+  border-radius: 10px;
   appearance: none;
 }
 
