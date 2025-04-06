@@ -71,7 +71,12 @@ function App() {
     {
       path: "/EventPage",
       element: <LayoutVerifiedStudent />,
-      children: [],
+      children: [
+        {
+          path:'',
+          element:<EventPage/>
+        }
+      ],
     },
     {
       path:"/CollegeDashBoard",

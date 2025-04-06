@@ -1,10 +1,10 @@
 .college-dashboard {
-  height: calc(100vh - 56px);
+  min-height: calc(100vh - 56px);
 }
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+  grid-template-columns: repeat(5, 1fr); /* 4 equal columns */
   gap: 20px; /* Equal spacing between items */
   padding: 20px;
 }

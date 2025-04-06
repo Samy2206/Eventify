@@ -36,7 +36,10 @@ const CollegeLogin = () => {
       const data = await response.json();
       if (response.ok) {
         console.log("Login Successful: ", data.msg);
-        Navigate("/CollegeDashBoard", { state: { uid: data.uid } });
+        localStorage.setItem('collegeUid',data.uid)
+        console.log(localStorage.getItem('collegeUid'))
+        // Navigate("/CollegeDashBoard", { state: { uid: data.uid } });
+        Navigate("/CollegeDashBoard");
       }
     } catch (e) {
       console.error("Login Error:", e.message);

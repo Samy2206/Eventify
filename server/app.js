@@ -9,8 +9,11 @@ const states = require('./routes/states')
 const student = require('./routes/student')
 const college = require('./routes/college')
 const Event = require('./Schema/Event')
+const multer = require('multer');
+const upload = multer({ dest: 'uploads/' }); // You can configure multer's storage options
 
-const applyMiddleware = require('./middleware/applyMiddleware')
+const applyMiddleware = require('./middleware/applyMiddleware');
+const College = require("./Schema/College");
 
 dotenv.config();
 const app = express();
@@ -20,19 +23,6 @@ const app = express();
 //* initialize firebase admin SDK
 initializeApp()
 
-app.post('/event/addevent',async (req,res)=>{
-  try{
-  const event = new Event(req.body)
-  console.log(req.body)
-  await event.save()
-  res.status(201).json({message:"Event Added Succesfully "+event})
-  }
-  catch(e)
-  {
-    res.status(401).json({message:"Error while adding event:"+e.message})
-  }
-})
-
 //* Apply middleware for all the api calls
 applyMiddleware(app)
 
@@ -40,8 +30,9 @@ applyMiddleware(app)
 connectDB()
 
 
+
 //* Routes
-app.use('/',router)
+app.use('/', router)
 
 // app.use('/user/college', college)
 // app.use('/api', states)

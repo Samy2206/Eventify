@@ -1,0 +1,27 @@
+.event-page{
+    min-height: calc(100vh - 56px);
+}
+
+.event-page .grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 4 equal columns */
+    gap: 20px; /* Equal spacing between items */
+    padding: 20px;
+  }
+  
+  .event-page .grid-container .grid-item {
+    background-color: #f8f9fa;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .no-events{
+    height: 100px;
+    margin-top: 45vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: Red;
+  }

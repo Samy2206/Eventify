@@ -15,19 +15,45 @@ library.add(faPlus);
 const CollegeDashboard = () => {
     const Navigate = useNavigate()
     const location = useLocation();
-    const collegeUid = location.state?.uid || "";
+    const collegeUid = localStorage.getItem('collegeUid')
     const [vError,setVError] = useState(false)
 
     const [events, setEvents] = useState([])
 
 
     useEffect (()=>{
-         handleAddEvent()
+         if(verifyCollege()) loadEvents()
+       
     },[])
+
+
+    const loadEvents = async () => {
+        try {
+            const response = await fetch(`http://localhost:5000/event/list/${collegeUid}`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+    
+            if (!response.ok) {
+                throw new Error(`Failed to fetch events: ${response.statusText}`);
+            }
+    
+            const data = await response.json();
+            console.log("Events fetched:", data.events); // for debugging
+            setEvents(data.events); // This sets the array of events
+        } catch (error) {
+            console.error("Error loading events:", error);
+        }
+    };
+    
+
+
 
    
 
-    const handleAddEvent = async () => {
+    const verifyCollege = async () => {
         try {
             const isVerified = await fetch(`http://localhost:5000/user/college/verify/${collegeUid}`, {
                 method: "GET",
@@ -44,10 +70,13 @@ const CollegeDashboard = () => {
     
             const data = await isVerified.json();
             console.log("Verification Response:", data);
+            return true
             
         } catch (error) {
             console.error("Error verifying college:", error);
+            return false
         }
+
     };
     
 
@@ -66,10 +95,9 @@ const CollegeDashboard = () => {
 </div>
 ) : (
             <>
-            <h3>College Dashboard</h3>
             <div className="grid-container">
                 {events.map((event) => (
-                    <EventCard key={event.id} event={event} />
+                    <EventCard key={event.id} event={event} refreshEvents={loadEvents}/>
                 ))}
             </div>
             <button onClick={()=>Navigate('AddEvent')} className='floating-add-button'><FontAwesomeIcon icon={faPlus} className='fa-icon-add' /></button>

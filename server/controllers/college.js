@@ -70,8 +70,6 @@ const setDetails = async (req, res) => {
 
 const verifyCollege = async (req, res) => {
   const { collegeUid } = req.params;
-  console.log("Verifying College UID:", collegeUid);
-
   try {
       const college = await College.findOne({ uid: collegeUid });
       if(college.verified)
@@ -83,4 +81,17 @@ const verifyCollege = async (req, res) => {
   }
 }
 
-module.exports = {registerCollege,loginCollege,setDetails,verifyCollege}
+const getDetails = async (req, res) => {
+  try {
+    const collegeUid = req.params.collegeUid
+    const college =  await College.findOne({ uid: collegeUid })
+    res.status(200).json(college)
+  }
+  catch (e) {
+    res.status(500).json({ success: false, error: "Internal server error: " + e })
+  }
+}
+
+
+
+module.exports = {registerCollege,loginCollege,setDetails,verifyCollege,getDetails}

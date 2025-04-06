@@ -57,6 +57,8 @@ const StudentLogin = () => {
         throw new Error(errText)
       }
 
+      localStorage.setItem('studentUid',uid)
+      localStorage.setItem('userType',"student")
       if (response.ok) {
         Navigate('/EventPage')
       }

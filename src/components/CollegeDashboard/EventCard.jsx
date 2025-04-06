@@ -1,21 +1,78 @@
 import React from 'react'
 import '../common.css'
 import './Eventcard.css'
+import { useState ,useEffect } from 'react'
 
-const EventCard = ({event}) => {
+const EventCard = ({event  , refreshEvents}) => {
+
+  const [collegeName,setCollegeName] = useState('')
+
+  useEffect(() => {
+   getCollegeName()
+  }, []);
+  
+
+  const handleViewEvent=()=>{
+
+  }
+
+  const handleDeleteEvent = async () => {
+    try {
+      const response = await fetch(`http://localhost:5000/event/delete/${event._id}`, {
+        method: "POST",
+        headers: {
+          'Content-Type': "application/json",
+        }
+      });
+  
+      const data = await response.json();
+      console.log(data.message);
+  
+      if (data.success) {
+        alert('Event deleted successfully');
+        refreshEvents()
+        
+      } else {
+        alert('Failed to delete: ' + data.message);
+      }
+    } catch (error) {
+      console.error('Error deleting event:', error);
+      alert('Error deleting event');
+    }
+  };
+  
+  const getCollegeName = async ()=>{
+    const response = await fetch(`http://localhost:5000/user/college/details/${event.collegeUid}`,{
+      method:"GET",
+      headers:{
+        "Content-Type":"application/json",
+      }
+    })
+
+    const data = await response.json()
+    console.log(data.name)
+    setCollegeName(data.name)
+  }
+
   return (
     <div className=' event-card'>
     <div className="inner">
 
         <h4>{event.eventName}</h4>
-        {event.collegeName} : {event.eventDate}
-        <img src={event.imageUrl} alt="Image not found" />
+        {collegeName} : {event.date}
+        <img src={`data:image/png;base64,${event.poster}`} alt="Image not found" />
         <div className="details">
-            {event.eventDetails}
+            {event.description}
         </div>
         <div className="buttons">
             <button>View</button>
-            <button>Wishlist</button>
+            {localStorage.getItem('userType' === 'college')? 
+            <>
+              <button onClick={handleViewEvent}>Wishlist</button>
+            </> : 
+            <>
+              <button onClick={handleDeleteEvent}>Delete</button>
+            </>}
         </div>
         
     </div>

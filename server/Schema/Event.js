@@ -5,6 +5,10 @@ const eventSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  collegeUid:{
+    type:String,
+    require:true,
+  },
   description: {
     type: String,
     required: true
@@ -23,43 +27,37 @@ const eventSchema = new mongoose.Schema({
     type: String, // URL or path to the uploaded image
     required: false
   },
-  schedule: {
-    date: {
-      type: Date,
-      required: true
-    },
-    time: {
-      type: String,
-      required: true
-    },
-    deadline: {
-      type: Date,
-      required: false
-    },
-    venue: {
-      type: String,
-      required: true
-    },
-    mapLink: {
-      type: String,
-      required: false
-    }
+  date: {
+    type: Date,
+    required: true
   },
-  participation: {
+  time: {
+    type: String,
+    required: true
+  },
+  deadline: {
+    type: Date,
+    required: false
+  },
+  venue: {
+    type: String,
+    required: true
+  },
+  mapLink: {
+    type: String,
+    required: false
+  },
     criteria: {
       type: String,
       required: false
     },
-    type: {
+    teamType: {
       type: String,
       enum: ['Solo', 'Team'],
       default: 'Solo'
     },
     teamSize: {
       type: Number,
-      required: function () {
-        return this.participation.type === 'Team';
-      }
     },
     registrationFees: {
       type: Number,
@@ -73,9 +71,7 @@ const eventSchema = new mongoose.Schema({
     seatLimit: {
       type: Number,
       required: false
-    }
-  },
-  organizer: {
+    },
     departmentName: {
       type: String,
       required: true
@@ -87,12 +83,11 @@ const eventSchema = new mongoose.Schema({
     contact: {
       type: String,
       required: true
-    }
-  },
+    },
   additionalDetails: {
     type: String,
     required: false
-  }
+  },
 });
 
 const Event = mongoose.model('Event', eventSchema);
