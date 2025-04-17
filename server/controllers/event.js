@@ -4,6 +4,7 @@ const addEvent = async (req, res) => {
   try {
     
       const event = new Event(req.body)
+      console.log(event)
       await event.save();
       res.status(201).json({ message: "Event Added Successfully", event });
    
@@ -49,5 +50,23 @@ const deleteEvent = async (req, res) => {
   }
 };
 
+const getEvent = async (req,res) =>{
+  console.log("Event Loaded"+req.params.eventId)
+  try{
+    const eventId = req.params.eventId
+    const event = await Event.findOne({_id:eventId})
+    if(!event)
+      return res.status(404).json({success:false,message:"Event not found"})
 
-module.exports = {addEvent , getCollegeEvent,deleteEvent,getEventList}
+    res.status(200).json({success:true,event:event})
+  }
+  catch(e)
+  {
+    console.log("Error Loading Event:"+e)
+    res.status(500).json({success:false,message:"Internal server error:"+e})
+  }
+
+}
+
+
+module.exports = {addEvent , getCollegeEvent,deleteEvent,getEventList,getEvent}

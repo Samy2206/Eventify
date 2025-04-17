@@ -28,7 +28,7 @@ const eventSchema = new mongoose.Schema({
     required: false
   },
   date: {
-    type: Date,
+    type: String,
     required: true
   },
   time: {
@@ -36,7 +36,7 @@ const eventSchema = new mongoose.Schema({
     required: true
   },
   deadline: {
-    type: Date,
+    type: String,
     required: false
   },
   venue: {

@@ -111,7 +111,7 @@ const RegistrationDetails = () => {
   };
 
   return (
-    <div className="details-page , blurbg  , common-input-style">
+    <div className="details-page , blurbg">
       <div className="wrapper-class">
         <div className='college-details'>
           <div className="common-inner-blur , innerDetails">

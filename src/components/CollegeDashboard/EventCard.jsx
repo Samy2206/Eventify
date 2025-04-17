@@ -2,8 +2,11 @@ import React from 'react'
 import '../common.css'
 import './Eventcard.css'
 import { useState ,useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const EventCard = ({event  , refreshEvents}) => {
+
+  const Navigate = useNavigate()
 
   const [collegeName,setCollegeName] = useState('')
 
@@ -13,7 +16,12 @@ const EventCard = ({event  , refreshEvents}) => {
   
 
   const handleViewEvent=()=>{
+    console.log(event._id)
+      Navigate('ViewEvent',{state:{eventId:event._id,collegeName:collegeName}})
+  }
 
+  const handleWishlistEvent=()=>{
+    console.log('Wishlist')
   }
 
   const handleDeleteEvent = async () => {
@@ -65,10 +73,10 @@ const EventCard = ({event  , refreshEvents}) => {
             {event.description}
         </div>
         <div className="buttons">
-            <button>View</button>
-            {localStorage.getItem('userType' === 'college')? 
+            <button onClick={handleViewEvent}>View</button>
+            {localStorage.getItem('userType') === 'student'? 
             <>
-              <button onClick={handleViewEvent}>Wishlist</button>
+              <button onClick={handleWishlistEvent}>Wishlist</button>
             </> : 
             <>
               <button onClick={handleDeleteEvent}>Delete</button>

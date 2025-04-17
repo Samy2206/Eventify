@@ -1,0 +1,28 @@
+.register-event{
+    min-height: calc(100vh - 56px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-event .wrapper{
+    width: 500px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.register-event .wrapper input,select{
+    width: 100%; 
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 15px;
+    border: 1px solid;
+    background: inherit;
+}
+
+.register-event .wrapper div{
+    width: 100%;
+}

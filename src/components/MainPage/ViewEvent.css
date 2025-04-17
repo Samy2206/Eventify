@@ -1,0 +1,164 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.viewevent-page{
+    min-height: calc(100vh - 56px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+}
+
+.viewevent-page .info-bar{
+    display: flex;
+    justify-content: space-around;
+    border: 2px solid black;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+
+.viewevent-page .event-description{
+    width: 100vw;
+    height: 400px;
+    justify-content: space-evenly;
+    align-items: center;
+    display: flex;
+    
+
+}
+
+.viewevent-page .description{
+    height: 400px;
+    overflow: scroll;
+    text-align: center;
+    border: 2px solid black;
+
+}
+
+.viewevent-page .additional-details{
+    height: 400px;
+    overflow: scroll;
+    border: 2px solid black;
+    text-align: center;
+}
+
+.viewevent-page .inner-blur{
+    background: rgba(255, 255, 255, 0.026); /* Transparent background */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);  */
+    padding: 20px;
+    /* border-radius: 20px; */
+}
+.viewevent-page .poster{
+    text-align: center;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    border: 2px solid black;
+}
+
+.viewevent-page .eligibility-details{
+
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+   border: 2px solid black;
+    padding: 15px;
+    margin: 20px;
+    border-radius: 15px;
+
+}
+
+.viewevent-page .contact-details h4{
+    text-align: center;
+}
+
+.viewevent-page .contact-details{
+    margin-left: 20px;
+    margin-right: 20px;
+    border: 2px solid black;
+
+}
+
+.viewevent-page .eligibility-details .team-details{
+    display: flex;
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+
+.viewevent-page .eligibility-details .team-details h3{
+    border: 2px solid black;
+}
+
+.viewevent-page .eligibility-details p{
+    border: 2px solid black;
+
+    width: calc(100vw - 300px);
+    margin-right: 150px;
+    margin-left: 150px;
+}
+
+.viewevent-page .eligibility-details div{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.viewevent-page .eligibility-details h4{
+    border: 2px solid black;
+    margin-left: 150px;
+}
+
+.viewevent-page .venue{
+ display: flex;
+ justify-content: center;
+ gap:50px;
+ border: 2px solid black;
+
+margin-left: 20px;
+margin-right: 20px;
+}
+
+.viewevent-page .venue iframe{
+    margin-left: 100px;
+    border-radius: 15px;
+}
+
+.viewevent-page .button{
+    display: flex;
+    justify-content: center;
+    gap: 200px;
+}
+
+.viewevent-page .button button{
+    background-image: linear-gradient(
+      to right,
+      #77a1d3 0%,
+      #79cbca 51%,
+      #77a1d3 100%
+    );
+    /* width: 100px; */
+    margin: 10px;
+    padding: 5px;
+    padding: 15px ;
+    text-align: center;
+    font-size: 20px;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+  }
+
+  .viewevent-page .address{
+    padding-top: 20px;
+  }

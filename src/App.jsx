@@ -9,6 +9,8 @@ import CollegeLogin from "./components/CollegeLogin";
 import RegistrationDetails from "./components/RegistrationDetails";
 import CollegeDashboard from "./components/CollegeDashboard";
 import AddEvent from "./components/CollegeDashboard/AddEvent";
+import ViewEvent from "./components/MainPage/ViewEvent";
+import RegisterEvent from "./components/MainPage/RegisterEvent";
 
 function App() {
   const LayoutUnverified = () => {
@@ -75,6 +77,14 @@ function App() {
         {
           path:'',
           element:<EventPage/>
+        },
+        {
+          path:'ViewEvent',
+          element:<ViewEvent/>,
+        },
+        {
+          path:'RegisterEvent',
+          element:<RegisterEvent/>
         }
       ],
     },

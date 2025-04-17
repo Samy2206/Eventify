@@ -89,3 +89,14 @@ align-items: center;
 .give-Margin{
     margin-bottom: 20px;
 }
+
+.details-page input,.details-page textarea , .details-page select{
+    width: 100%; /* Makes them take full width of .login-container */
+    /* max-width: 300px;  */
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 15px;
+    border: 1px solid;
+    background: inherit;
+  
+}

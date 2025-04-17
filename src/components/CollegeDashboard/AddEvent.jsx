@@ -17,10 +17,10 @@ const AddEvent = () => {
     time: '',
     deadline: '',
     venue: '',
-    maplink: '',
+    mapLink: '',
     criteria: '',
     teamType: '',
-    teamSize: '',
+    teamSize: 1,
     registrationFees: '',
     idCardRequired: 'Necessary',
     seatLimit: '',
@@ -37,7 +37,7 @@ const AddEvent = () => {
 
     const requiredFields = [
       'eventName', 'description', 'eventType', 'category', 'poster', 'date', 'time',
-      'deadline', 'venue', 'maplink', 'criteria', 'teamType', 'registrationFees',
+      'deadline', 'venue', 'mapLink', 'criteria', 'teamType', 'registrationFees',
       'idCardRequired', 'seatLimit', 'departmentName', 'coordinator', 'contact', 'additionalDetails'
   ];
 
@@ -78,7 +78,7 @@ const AddEvent = () => {
 
 
 const handleChange = (e) => {
-  const { name, type, files } = e.target;
+  const { name, type, files ,value} = e.target;
   if (type === 'file') {
     // Convert the file to base64
     const file = files[0];
@@ -92,6 +92,13 @@ const handleChange = (e) => {
       console.log(reader.result); // This will log the Base64 string
     };
     reader.readAsDataURL(file); // This will trigger the base64 conversion
+  } else if (name === 'date' || name === 'deadline') {
+    // Only take the date part
+    const formattedDate = new Date(value).toISOString().split('T')[0];
+    setEventDetails((prev) => ({
+      ...prev,
+      [name]: formattedDate,
+    }));
   } else {
     setEventDetails((prev) => ({
       ...prev,
@@ -176,7 +183,7 @@ const handleChange = (e) => {
             <input type="date" name="deadline" id="dateLine" value={eventDetails.deadline} onChange={handleChange} />
           </div>
           <input type="text" name="venue" id="venue" placeholder='Venue' value={eventDetails.venue} onChange={handleChange} />
-          <input type="url" name="maplink" id="maplink" placeholder='Map Link' value={eventDetails.maplink} onChange={handleChange} />
+          <input type="url" name="mapLink" id="mapLink" placeholder='Enter only embeddable map link' value={eventDetails.mapLink} onChange={handleChange} />
         </div>
       </div>
 
