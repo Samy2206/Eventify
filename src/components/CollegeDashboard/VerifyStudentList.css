@@ -1,0 +1,27 @@
+.verify-student-list{
+    min-height: calc(100vh - 56px);
+}
+
+
+/* VerifyStudent.css */
+.verify-student-list .search-container {
+    margin: 20px;
+    text-align: left;
+    margin-left: 25px;
+}
+
+.verify-student-list .search-bar{
+    padding: 8px;
+    width: 300px;
+    font-size: 16px;
+    border: 1px solid black;
+    border-radius: 4px;
+    background: inherit;
+    color: black;
+    font-weight: bold;
+}
+
+.verify-student-list .search-bar:focus {
+    outline: none;
+    border-color: black;
+}

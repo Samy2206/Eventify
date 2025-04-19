@@ -4,6 +4,8 @@ import '../common.css'
 import { useLocation } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { storage } from '../../../firebase'
 
 const RegisterEvent = () => {
     const Navigate = useNavigate()
@@ -102,35 +104,38 @@ const RegisterEvent = () => {
         }
     }
 
-    const handleChange = (e) => {
+    const handleChange = async (e) => {
         const { type, files, name } = e.target;
-        
+      
         if (type === 'file') {
-            const file = files[0];
-            const reader = new FileReader();
-    
-            reader.onloadend = () => {
-                if (name === 'recommendationLetter') {
-                    // Check if the file is a PDF or an image
-                    if (file.type === 'application/pdf') {
-                        // Handle PDF files
-                        setRecommendationLetter(reader.result); // Base64 PDF string
-                        console.log(reader.result); // Logs the Base64 string for the PDF
-                    } else {
-                        // Handle image files (PNG, JPEG, JPG)
-                        setRecommendationLetter(reader.result);
-                        console.log(reader.result); // Logs the Base64 string for image files
-                    }
-                } else if (name === 'idCard') {
-                    setIdCard(reader.result); // Store the base64 string for the ID Card
-                } else if (name === 'profilePicture') {
-                    setProfilePicture(reader.result); // Store the base64 string for the profile picture
-                }
-            };
-    
-            reader.readAsDataURL(file); // This will trigger the base64 conversion
+          const file = files[0];
+      
+          // Auto-generate unique path to avoid name conflicts
+          const filePath = `${name}/${Date.now()}_${file.name}`;
+          const storageRef = ref(storage, filePath);
+      
+          try {
+            // Upload to Firebase Storage
+            await uploadBytes(storageRef, file);
+      
+            // Get downloadable URL
+            const downloadURL = await getDownloadURL(storageRef);
+      
+            // Set corresponding state based on input name
+            if (name === 'recommendationLetter') {
+              setRecommendationLetter(downloadURL);
+            } else if (name === 'idCard') {
+              setIdCard(downloadURL);
+            } else if (name === 'profilePicture') {
+              setProfilePicture(downloadURL);
+            }
+      
+            console.log(`${name} uploaded successfully:`, downloadURL);
+          } catch (error) {
+            console.error(`Error uploading ${name}:`, error);
+          }
         }
-    };
+      };
     
     
 

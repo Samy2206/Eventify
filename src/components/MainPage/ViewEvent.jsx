@@ -57,7 +57,7 @@ const ViewEvent = () => {
                     <div className="event-description">
                         <div className="poster common-inner-blur">
                             <img
-                                src={`data:image/jpeg;base64,${event.poster}`}
+                                src={event.poster}
                                 alt="Event Poster"
                             />
                         </div>
@@ -119,8 +119,14 @@ const ViewEvent = () => {
     
                     {/* <hr /> */}
                     <div className="button">
+                    {localStorage.getItem('userType')==='student'?<>
+
                         <button onClick={()=>Navigate('/EventPage')}>Back</button>
                         <button onClick={handleRegister}>Register</button>
+                    </>
+                    :
+                    <button onClick={()=>Navigate('/CollegeDashboard')}>Back</button>
+                    }
                     </div>
                 </div>
             ) : (

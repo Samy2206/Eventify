@@ -77,6 +77,7 @@ const CollegeLogin = () => {
       }
 
       console.log("Registration Successful: ", data.message);
+      localStorage.setItem('collegeUid',uid)
       Navigate("/RegistrationDetails", { state: { uid: data.uid } }); //*Passing uid to registration details
     } catch (e) {
       console.error("Registration Error: ", e);

@@ -1,0 +1,27 @@
+.event-list-verify{
+    min-height: calc(100vh - 56px);
+}
+
+
+/* VerifyStudent.css */
+.event-list-verify .search-container {
+    margin: 20px;
+    text-align: left;
+    margin-left: 25px;
+}
+
+.event-list-verify .search-bar{
+    padding: 8px;
+    width: 300px;
+    font-size: 16px;
+    border: 1px solid black;
+    border-radius: 4px;
+    background: inherit;
+    color: black;
+    font-weight: bold;
+}
+
+.event-list-verify .search-bar:focus {
+    outline: none;
+    border-color: black;
+}

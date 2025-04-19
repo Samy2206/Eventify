@@ -1,0 +1,125 @@
+.reg-event-item{
+    width: 75vw;
+    min-height: 310px;
+}
+
+.reg-event-item .event-details{
+    display: flex;
+    flex-direction: row;
+}
+
+.reg-event-item .event-details img{
+    max-height: 250px;
+    max-width: 300px;
+    border: 2px solid black;
+}
+
+.reg-event-item .event-details .details-event{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.reg-event-item .event-details div{
+    min-height: 200px;
+}
+
+.reg-event-item .approval{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+
+
+/* From Uiverse.io by SupportHotline */ 
+.reg-event-item .event-details .details-event button{
+    background: var(--color-back);
+    border-radius: 0.5em;
+    box-shadow:
+      inset 0px -6px 18px -6px rgba(3, 15, 20, 0),
+      inset rgba(54, 69, 75, 1) -1px -1px 6px 0px,
+      inset 12px 0px 12px -6px rgba(3, 15, 20, 0),
+      inset -12px 0px 12px -6px rgba(3, 15, 20, 0),
+      rgba(54, 69, 75, 1) -1px -1px 6px 0px;
+    border: solid 2px #030f14;
+    cursor: pointer;
+    font-size: 15px;
+    padding: 5px;
+    outline: none;
+    transition: all 0.3s;
+    user-select: none;
+  }
+  
+  .reg-event-item .event-details .details-event  button:hover {
+    box-shadow:
+      inset 0px -6px 18px -6px rgba(3, 15, 20, 1),
+      inset 0px 6px 18px -6px rgba(3, 15, 20, 1),
+      inset 12px 0px 12px -6px rgba(3, 15, 20, 0),
+      inset -12px 0px 12px -6px rgba(3, 15, 20, 0),
+      -1px -1px 6px 0px rgba(54, 69, 75, 1);
+  }
+  
+  .reg-event-item .event-details .details-event  button:active {
+    box-shadow:
+      inset 0px -12px 12px -6px rgba(3, 15, 20, 1),
+      inset 0px 12px 12px -6px rgba(3, 15, 20, 1),
+      inset 12px 0px 12px -6px rgba(3, 15, 20, 1),
+      inset -12px 0px 12px -6px rgba(3, 15, 20, 1),
+      -1px -1px 6px 0px rgba(54, 69, 75, 1);
+  }
+  
+  /* .text {
+    color: #d0a756;
+    font-weight: 700;
+    margin: auto;
+    transition: all 0.3s;
+    width: fit-content;
+  }
+  
+  .button:hover .text {
+    transform: scale(0.9);
+  }
+  
+  .button:active .text {
+    transform: scale(0.8);
+  } */
+  
+  
+.blur-pending{
+    background: rgba(255, 255, 255, 0.2); /* Transparent background */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.blur-approved{
+    background: rgba(30, 247, 30, 0.2); /* Transparent background */
+    border: 1px solid rgba(0, 255, 94, 0.776);
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.blur-rejected{
+    background: rgba(239, 0, 0, 0.2); /* Transparent background */
+    border: 1px solid rgba(184, 0, 0, 0.776);
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.reg-event-item .approval button{
+    border-radius: 15px;
+    min-width: 50px;
+    padding: 5px;
+    background: inherit;
+    border: 1px solid black;
+
+}

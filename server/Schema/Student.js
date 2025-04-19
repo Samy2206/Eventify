@@ -30,5 +30,7 @@ const studentSchema = new mongoose.Schema({
     },
 },{timestamps:true})
 
+studentSchema.index({ uid: 1 }); 
+
 const Student = mongoose.model('Student',studentSchema)
 module.exports = Student

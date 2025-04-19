@@ -2,7 +2,6 @@ const express = require("express");
 const dotenv = require("dotenv");
 const connectDB = require('./config/db')
 const router = require('./routes/centralizedRoute')
-const bodyParser = require('body-parser')
 const initializeApp = require('./config/firebase')
 const applyMiddleware = require('./middleware/applyMiddleware');
 
@@ -20,8 +19,11 @@ applyMiddleware(app)
 connectDB()
 
 
+
 //* Routes
 app.use('/', router)
+
+
 
 
 app.listen(process.env.PORT, (req, res) => {

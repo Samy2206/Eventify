@@ -79,4 +79,35 @@ const loginStudent = async (req, res) => {
     }
   }
 
-  module.exports = {loginStudent,registerStudent,getStudentDetails,updateStudent}
+  const fetch = require('node-fetch'); // Import node-fetch
+  const stream = require('stream'); // Import stream module
+  
+  const getProfilePictureBlob = async (req, res) => {
+    try {
+      const student = await Student.findOne({ uid: req.params.studentUid });
+      if (!student)
+        return res.status(404).json({ success: false, message: 'Student Not Found' });
+  
+      const imageUrl = student.profilePicture;  // Assuming the profile picture URL is stored here
+      const imageResponse = await fetch(imageUrl);
+      
+      if (!imageResponse.ok) {
+        return res.status(404).json({ success: false, message: 'Image not found' });
+      }
+  
+      // Set the appropriate content type based on the image format (JPEG, PNG, etc.)
+      const contentType = imageResponse.headers.get('Content-Type');
+      res.set('Content-Type', contentType);
+  
+      // Use a PassThrough stream to pipe the response
+      const passthrough = new stream.PassThrough();
+      imageResponse.body.pipe(passthrough);
+      passthrough.pipe(res);  // Pipe it to the response object
+    } catch (error) {
+      console.log("Error fetching and piping image:", error);
+      return res.status(500).json({ success: false, message: 'Internal Server Error', error });
+    }
+  };
+  
+
+  module.exports = {loginStudent,registerStudent,getStudentDetails,updateStudent,getProfilePictureBlob}

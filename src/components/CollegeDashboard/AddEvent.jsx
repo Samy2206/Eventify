@@ -2,6 +2,8 @@ import React from 'react'
 import { useState } from 'react'
 import './AddEvent.css'
 import { useNavigate } from 'react-router-dom'
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { storage } from '../../../firebase'
 // import '../common.css'
 
 const AddEvent = () => {
@@ -77,21 +79,32 @@ const AddEvent = () => {
   
 
 
-const handleChange = (e) => {
+const handleChange = async(e) => {
   const { name, type, files ,value} = e.target;
   if (type === 'file') {
-    // Convert the file to base64
     const file = files[0];
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      // Store the base64 string in the eventDetails state
+    if (!file) return;
+
+    // Create a reference in Firebase Storage
+    const storageRef = ref(storage, `eventPosters/${Date.now()}_${file.name}`);
+
+    try {
+      // Upload the file to Firebase Storage
+      await uploadBytes(storageRef, file);
+
+      // Get the download URL
+      const downloadURL = await getDownloadURL(storageRef);
+
+      // Store the URL in eventDetails
       setEventDetails((prev) => ({
         ...prev,
-        [name]: reader.result.replace(/^data:image\/(png|jpeg|jpg);base64,/, ''), // This is the base64 string
+        [name]: downloadURL, // Save URL instead of base64
       }));
-      console.log(reader.result); // This will log the Base64 string
-    };
-    reader.readAsDataURL(file); // This will trigger the base64 conversion
+
+      console.log('Uploaded file URL:', downloadURL);
+    } catch (err) {
+      console.error('Error uploading file:', err);
+    }
   } else if (name === 'date' || name === 'deadline') {
     // Only take the date part
     const formattedDate = new Date(value).toISOString().split('T')[0];

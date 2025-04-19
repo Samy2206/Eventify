@@ -11,6 +11,13 @@ import CollegeDashboard from "./components/CollegeDashboard";
 import AddEvent from "./components/CollegeDashboard/AddEvent";
 import ViewEvent from "./components/MainPage/ViewEvent";
 import RegisterEvent from "./components/MainPage/RegisterEvent";
+import VerifyStudent from "./components/CollegeDashboard/VerifyStudent";
+import VerifyStudentList from "./components/CollegeDashboard/VerifyStudentList";
+import ViewRequest from "./components/CollegeDashboard/ViewRequest";
+import RegisteredList from "./components/MainPage/RegisteredList";
+import { path } from "framer-motion/client";
+import AdminLogin from "./components/AdminLogin";
+import Wishlist from "./components/MainPage/Wishlist";
 
 function App() {
   const LayoutUnverified = () => {
@@ -43,6 +50,16 @@ function App() {
     )
   }
 
+  const LayoutVerifiedAdmin = () =>{
+    return(
+      <>
+        <NavBar user={"Admin"}/>
+        <div className="main-content"></div>
+        <Outlet/>
+      </>
+    )
+  }
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -68,6 +85,10 @@ function App() {
           path: "RegistrationDetails",
           element: <RegistrationDetails />,
         },
+        {
+          path:'AdminLogin',
+          element:<AdminLogin/>
+        }
       ],
     },
     {
@@ -85,7 +106,15 @@ function App() {
         {
           path:'RegisterEvent',
           element:<RegisterEvent/>
-        }
+        },
+        {
+          path:'RegisteredList',
+          element:<RegisteredList/>
+        },
+        {
+          path:'Wishlist',
+          element:<Wishlist/>
+        },
       ],
     },
     {
@@ -100,8 +129,30 @@ function App() {
           path:"AddEvent",
           element:<AddEvent/>
         },
+        {
+          path:'VerifyStudent',
+          element:<VerifyStudent/>,
+        },
+        {
+          path:'VerifyStudentList',
+          element:<VerifyStudentList/>
+        },
+        {
+          path:'ViewRequest',
+          element:<ViewRequest/>
+        }
       ]
     },
+    {
+      path:'/AdminDashboard',
+      element:<LayoutVerifiedAdmin/>,
+      children:[
+        {
+          path:'',
+          element:''
+        }
+      ]
+    }
   ]);
 
   return (

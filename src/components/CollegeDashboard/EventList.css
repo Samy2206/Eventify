@@ -1,0 +1,62 @@
+.event-list{
+    height: 75px;
+    margin: 10px 20px 0px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+.blur-pending{
+    background: rgba(255, 255, 255, 0.2); /* Transparent background */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.blur-approved{
+    background: rgba(30, 247, 30, 0.2); /* Transparent background */
+    border: 1px solid rgba(0, 255, 94, 0.776);
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.blur-rejected{
+    background: rgba(239, 0, 0, 0.2); /* Transparent background */
+    border: 1px solid rgba(184, 0, 0, 0.776);
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.event-list button{
+    position: relative;
+    font-size: 17px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1em 2.5em;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 6em;
+    transition: all 0.2s;
+    border: none;
+    font-family: inherit;
+    font-weight: 500;
+    color: black;
+    background-color: inherit;
+    
+}
+
+.event-list h3{
+    flex: 1;
+}
+
+.event-list button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }

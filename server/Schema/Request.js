@@ -23,15 +23,18 @@ const requestSchema = new mongoose.Schema({
     idCard:{
         type:String,
     },
-    approved:{
-        type:Boolean,
-        default:false,
-    },
-    rejected:{
-        type:Boolean,
-        default:false,
+    request:{
+        type:String,
+        default:'pending'
     },
     mobileNo:{
+        type:String,
+    },
+    payment:{
+        type:Boolean,
+        default:false,
+    },
+    paymentId:{
         type:String,
     }
 },{timestamps:true})

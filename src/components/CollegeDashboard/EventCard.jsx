@@ -16,12 +16,43 @@ const EventCard = ({event  , refreshEvents}) => {
   
 
   const handleViewEvent=()=>{
-    console.log(event._id)
+
+    if(localStorage.getItem('userType')==='student')
+    {
+      console.log(event._id)
       Navigate('ViewEvent',{state:{eventId:event._id,collegeName:collegeName}})
+    }
+    else
+    { 
+      Navigate('/EventPage/ViewEvent',{state:{eventId:event._id,collegeName:collegeName}})
+    }
+
   }
 
-  const handleWishlistEvent=()=>{
-    console.log('Wishlist')
+  const handleWishlistEvent=async()=>{
+    try{
+        const response = await fetch(`http://localhost:5000/wishlist`,{
+          method:'POST',
+          headers:{
+            'Content-Type':'application/json'
+          },
+          body:JSON.stringify({
+            eventId:event._id,
+            studentUid:localStorage.getItem('studentUid')
+          })
+        })
+
+        const data = response.json()
+        if(!response.ok)
+          alert('Unable to wishlist event')
+
+        alert('Event Wishlisted')
+          return 
+        
+    }catch(e)
+    {
+      return console.log("Error wishlisting event: ",e)
+    }
   }
 
   const handleDeleteEvent = async () => {
@@ -68,7 +99,7 @@ const EventCard = ({event  , refreshEvents}) => {
 
         <h4>{event.eventName}</h4>
         {collegeName} : {event.date}
-        <img src={`data:image/png;base64,${event.poster}`} alt="Image not found" />
+        <img src={event.poster} alt="Image not found" />
         <div className="details">
             {event.description}
         </div>

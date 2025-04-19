@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './RegistrationDetails.css';
 import './common.css';
-import { useNavigate } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { storage } from '../../firebase'
 
 const RegistrationDetails = () => {
   const [states, setStates] = useState([]);
@@ -22,10 +23,10 @@ const RegistrationDetails = () => {
   const [collegeWebsite, setCollegeWebsite] = useState('');
   const [collegeAffiliation, setCollegeAffiliation] = useState('');
   const [accreditation, setAccreditation] = useState('');
-  const [image64,setImage64] = useState("");
+  const [collegeLogo, setCollegeLogo] = useState('');
   const Navigate = useNavigate();
   const location = useLocation();
-  const collegeUid = location.state?.uid || "";  
+  const collegeUid = location.state?.uid || "";
 
   useEffect(() => {
     fetch("http://localhost:5000/api/states")
@@ -52,6 +53,18 @@ const RegistrationDetails = () => {
   };
 
 
+
+  const uploadImage = async (file, collegeUid) => {
+    const storageRef = ref(storage, `collegelogo/${collegeUid}`);
+    await uploadBytes(storageRef, file);
+    const url = await getDownloadURL(storageRef);
+    return url;
+  };
+
+
+
+
+
   const handleDistrictChange = (e) => {
     const districtId = Number(e.target.value);
     const selectedDistrictObj = districts.find(district => district.district_id === districtId);
@@ -59,18 +72,14 @@ const RegistrationDetails = () => {
     setDistrictName(selectedDistrictObj.district_name)
   };
 
-  const handleImageChange = async (e)=>{
-    const file = e.target.files[0]
-    if(file)
-    {
-      const reader = new FileReader()
-      reader.readAsDataURL(file)
-      reader.onloadend = () =>{
-        setImage64(reader.result.split(",")[1])
-      }
-    }
-  }
-   
+  const handleImageChange = async (e) => {
+    const file = e.target.files[0];
+    const url = await uploadImage(file, collegeUid); // studentId = unique ID
+    setCollegeLogo(url)
+    
+  };
+  
+
   const submitCollegeDetails = async () => {
     try {
       const response = await fetch('http://localhost:5000/user/college/details', {
@@ -79,7 +88,7 @@ const RegistrationDetails = () => {
           'Content-Type': "application/json"
         },
         body: JSON.stringify({
-          "uid":collegeUid,
+          "uid": collegeUid,
           "name": collegeName,
           "collegeEmail": collegeEmail,
           "collegeCode": collegeCode,
@@ -94,16 +103,15 @@ const RegistrationDetails = () => {
           "website": collegeWebsite,
           "affiliation": collegeAffiliation,
           "accreditation": accreditation,
-          "collegeLogo":image64,
+          "collegeLogo": collegeLogo,
         })
       });
 
       const data = await response.json();
       console.log("Response from server:", data);
 
-      if(response.ok)
-      {
-        Navigate('/CollegeDashBoard',{ state: { uid: data.uid } })
+      if (response.ok) {
+        Navigate('/CollegeDashBoard', { state: { uid: data.uid } })
       }
     } catch (e) {
       console.log(e);
@@ -121,7 +129,7 @@ const RegistrationDetails = () => {
             <input type="text" value={collegeCode} onChange={(e) => setCollegeCode(e.target.value)} placeholder='College Code' required /><br />
             <textarea value={collegeAddress} onChange={(e) => setCollegeAddress(e.target.value)} placeholder='Address' required></textarea><br />
 
-            <label htmlFor="accreditation" style={{fontSize:'15px',fontWeight:'bold',}}>State:</label>
+            <label htmlFor="accreditation" style={{ fontSize: '15px', fontWeight: 'bold', }}>State:</label>
 
             <select onChange={handleStateChange} value={selectedState} required>
               <option value="">-- Select State --</option>
@@ -132,7 +140,7 @@ const RegistrationDetails = () => {
               ))}
             </select><br />
 
-            <label htmlFor="accreditation" style={{fontSize:'15px',fontWeight:'bold',}}>District: </label>
+            <label htmlFor="accreditation" style={{ fontSize: '15px', fontWeight: 'bold', }}>District: </label>
 
             <select onChange={handleDistrictChange} disabled={!selectedState} required>
               <option value="">-- Select District --</option>
@@ -147,54 +155,54 @@ const RegistrationDetails = () => {
             <input type="number" value={pincode} onChange={(e) => setPincode(e.target.value)} placeholder='Pincode' required /><br />
           </div>
         </div>
-              <div className="other-details">
+        <div className="other-details">
 
-              <div className="other-details-inner">
+          <div className="other-details-inner">
 
-              
-        <div className="admin-details">
-          <div className="common-inner-blur , innerDetails">
-            <h3 className='give-Margin'>Admin Details</h3>
-            <input type="text" value={adminName} onChange={(e) => setAdminName(e.target.value)} placeholder='Admin Name' required /><br />
-            <input type="email" value={adminEmail} onChange={(e) => setAdminEmail(e.target.value)} placeholder='Email' required /><br />
-            <input type="text" value={adminContact} onChange={(e) => setAdminContact(e.target.value)} placeholder='Contact No' required /><br />
+
+            <div className="admin-details">
+              <div className="common-inner-blur , innerDetails">
+                <h3 className='give-Margin'>Admin Details</h3>
+                <input type="text" value={adminName} onChange={(e) => setAdminName(e.target.value)} placeholder='Admin Name' required /><br />
+                <input type="email" value={adminEmail} onChange={(e) => setAdminEmail(e.target.value)} placeholder='Email' required /><br />
+                <input type="text" value={adminContact} onChange={(e) => setAdminContact(e.target.value)} placeholder='Contact No' required /><br />
+              </div>
+            </div>
+
+            <div className="verification-details">
+              <div className="common-inner-blur , innerDetails">
+                <h3 className='give-Margin'>Verification Details</h3>
+                <input type="url" value={collegeWebsite} onChange={(e) => setCollegeWebsite(e.target.value)} placeholder='College Website' required /><br />
+                <input type="text" value={collegeAffiliation} onChange={(e) => setCollegeAffiliation(e.target.value)} placeholder='Affiliated University' required /><br />
+
+                <label htmlFor="accreditation" style={{ fontSize: '15px', fontWeight: 'bold', }}>Accreditation Status:</label>
+                <select value={accreditation} onChange={(e) => setAccreditation(e.target.value)} required>
+                  <option value="">-- Select --</option>
+                  <optgroup label="NAAC Accreditation">
+                    <option value="A++">A++</option>
+                    <option value="A+">A+</option>
+                    <option value="A">A</option>
+                    <option value="B++">B++</option>
+                    <option value="B+">B+</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="not_accredited">Not Accredited</option>
+                  </optgroup>
+                  <optgroup label="NBA Accreditation">
+                    <option value="nba_accredited">Accredited</option>
+                    <option value="nba_not_accredited">Not Accredited</option>
+                  </optgroup>
+                </select>
+              </div>
+            </div>
           </div>
-        </div>
+          <div className="logo-upload">
+            <div className="common-inner-blur , innerDetails">
+              <label htmlFor="accreditation" style={{ fontSize: '15px', fontWeight: 'bold', }}>College Logo: </label>
 
-        <div className="verification-details">
-          <div className="common-inner-blur , innerDetails">
-            <h3 className='give-Margin'>Verification Details</h3>
-            <input type="url" value={collegeWebsite} onChange={(e) => setCollegeWebsite(e.target.value)} placeholder='College Website' required /><br />
-            <input type="text" value={collegeAffiliation} onChange={(e) => setCollegeAffiliation(e.target.value)} placeholder='Affiliated University' required /><br />
-
-            <label htmlFor="accreditation" style={{fontSize:'15px',fontWeight:'bold',}}>Accreditation Status:</label>
-            <select value={accreditation} onChange={(e) => setAccreditation(e.target.value)} required>
-              <option value="">-- Select --</option>
-              <optgroup label="NAAC Accreditation">
-                <option value="A++">A++</option>
-                <option value="A+">A+</option>
-                <option value="A">A</option>
-                <option value="B++">B++</option>
-                <option value="B+">B+</option>
-                <option value="B">B</option>
-                <option value="C">C</option>
-                <option value="not_accredited">Not Accredited</option>
-              </optgroup>
-              <optgroup label="NBA Accreditation">
-                <option value="nba_accredited">Accredited</option>
-                <option value="nba_not_accredited">Not Accredited</option>
-              </optgroup>
-            </select>
+              <input type="file" name="collegeLogo" accept='image/*' id="collegeLogo" onChange={handleImageChange} />
+            </div>
           </div>
-        </div>
-        </div>
-        <div className="logo-upload">
-         <div className="common-inner-blur , innerDetails">
-         <label htmlFor="accreditation" style={{fontSize:'15px',fontWeight:'bold',}}>College Logo: </label>
-
-          <input type="file" name="collegeLogo" accept='image/*' id="collegeLogo" onChange={handleImageChange}/>
-         </div>
-        </div>
         </div>
       </div>
 

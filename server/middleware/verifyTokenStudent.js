@@ -10,10 +10,11 @@ const verifyTokenStudent = async (req, res, next) => {
         const token = authHeader.split(" ")[1];
         const decodedToken = await admin.auth().verifyIdToken(token);
 
+        console.log(decodedToken)
         req.student = {
             uid: decodedToken.uid,
             email: decodedToken.email,
-            name: req.body.name,
+            name: req.body.name || " ",
         };
         next();
     } catch (e) {

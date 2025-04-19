@@ -64,7 +64,7 @@ const collegeSchema = new mongoose.Schema({
     collegeLogo:{
         type:String,
     },
-});
+},{timestamps:true});
 
 const College = mongoose.model("College", collegeSchema);
 

@@ -88,7 +88,15 @@ const eventSchema = new mongoose.Schema({
     type: String,
     required: false
   },
-});
+  approved:{
+    type:Number,
+    default:0,
+  },
+  rejected:{
+    type:Number,
+    default:0,
+  }
+},{timestamps:true});
 
 const Event = mongoose.model('Event', eventSchema);
 

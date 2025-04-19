@@ -1,0 +1,70 @@
+.view-request{
+    min-height: calc(100vh - 56px);
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+
+.view-request .inner-blur{
+    background: rgba(255, 255, 255, 0.2); /* Transparent background */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.view-request .inner .student-details{
+    width: 70vw;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.view-request .inner{
+    margin-top: 50px;
+    flex-direction: column;
+}
+.view-request .inner img{
+    height: 300px;
+    width: auto;
+    border: 2px solid black;
+}
+.view-request .inner .inner-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.view-request .inner .inner-details h3{
+    display: inline;
+}
+
+.view-request .inner .document{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 500px;
+}
+
+.view-request .document embed{
+    height: 400px;
+    width: 500px;
+    border: 2px solid black;
+}
+.view-request .document img{
+    max-height: 400px;
+}
+
+.view-request .button{
+    display: flex;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.view-request .button button{
+    padding: 15px;
+    width: auto;
+    font-size: 25px;
+}

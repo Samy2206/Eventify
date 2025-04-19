@@ -1,0 +1,11 @@
+.registered-list{
+    min-height: calc(100vh - 56px);
+    
+}
+.registered-list .inner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding-top: 50px;
+}

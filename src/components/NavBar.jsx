@@ -4,6 +4,7 @@ import { useState } from 'react'
 import './NavBar.css'
 const NavBar = ({ user }) => {
     const Navigate = useNavigate()
+
     const handleLogin = (e) => {
         const selectedValue = e.target.value;
         if (selectedValue)
@@ -32,16 +33,17 @@ const NavBar = ({ user }) => {
                             <option disabled selected>Login</option>
                             <option value="/StudentLogin">Student</option>
                             <option value="/CollegeLogin">College</option>
+                            <option value="/AdminLogin">Admin</option>
                         </select>
                     </ul>
                 </div>
             }
             {user === "College" &&
                 <div className='NavBar_Container'>
-                    <NavLink to="/"><h3 className='logo'>Eventify</h3></NavLink>
+                    <NavLink to="/CollegeDashboard"><h3 className='logo'>Eventify</h3></NavLink>
                     <ul>
-                        <NavLink to={'/'}><li>Schedule Event</li></NavLink>
-                        <NavLink to={'/About'}><li>Verify Students</li></NavLink>
+                        <NavLink to={'/CollegeDashboard'}><li>Schedule Event</li></NavLink>
+                        <NavLink to={'/CollegeDashboard/VerifyStudent'}><li>Verify Students</li></NavLink>
                         <select name="optionSelect" id="optionSelect" onChange={handleMenuOption} className='login-select' >
                             <option disabled selected>Options</option>
                             <option value="/">Profile</option>
@@ -55,12 +57,24 @@ const NavBar = ({ user }) => {
                     <NavLink to="/"><h3 className='logo'>Eventify</h3></NavLink>
                     <ul>
                         <NavLink to={'/EventPage'}><li>Events</li></NavLink>
-                        <NavLink to={'/About'}><li>Registered Events</li></NavLink>
+                        <NavLink to={'/EventPage/RegisteredList'}><li>Registered Events</li></NavLink>
+                        <NavLink to={'/EventPage/Wishlist'}><li>Wishlist</li></NavLink>
                         <select name="optionSelect" id="optionSelect" onChange={handleMenuOption} className='login-select' >
                             <option disabled selected>Options</option>
                             <option value="/">Profile</option>
                             <option value="logout">Logout</option>
                         </select>
+                    </ul>
+                </div>
+            }
+            {user === "Admin" &&
+                <div className='NavBar_Container'>
+                    <NavLink to="/"><h3 className='logo'>Eventify</h3></NavLink>
+                    <ul>
+                        <NavLink to={'/EventPage'}><li>Students</li></NavLink>
+                        <NavLink to={'/EventPage/RegisteredList'}><li>Colleges</li></NavLink>
+                        <NavLink to={'/EventPage/RegisteredList'}><li>Validate Colleges</li></NavLink>
+                        <li onClick={handleMenuOption}>Logout</li>
                     </ul>
                 </div>
             }

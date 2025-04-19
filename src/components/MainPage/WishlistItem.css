@@ -1,0 +1,27 @@
+.wishlist-item{
+    align-items: center;
+width: 70vw;
+    display: flex;
+    justify-content: space-around;
+}
+
+.wishlist-item button{
+    border-radius: 15px;
+    min-width: 50px;
+    padding: 5px;
+    background: inherit;
+    border: 1px solid black;
+
+}
+ 
+.wishlist-item .button{
+    display: flex;
+    width: 200px;
+    justify-content: space-around;
+}
+
+.wishlist-wrapper{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
