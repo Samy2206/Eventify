@@ -34,10 +34,16 @@
   .add-event-page textarea {
     width: 100%;
     padding: 10px;
+    color: black;
     font-size: 16px;
     border-radius: 15px;
     border: 1px solid;
     background: inherit;
+  
+  }
+
+  .add-event-page select option{
+    background-color: black;
   }
   
   .date-time input,
@@ -54,6 +60,8 @@
     width: 100%;
     font-size: 16px;
   }
+
+
   
   .add-button {
     display: flex;

@@ -71,9 +71,9 @@ const NavBar = ({ user }) => {
                 <div className='NavBar_Container'>
                     <NavLink to="/"><h3 className='logo'>Eventify</h3></NavLink>
                     <ul>
-                        <NavLink to={'/EventPage'}><li>Students</li></NavLink>
+                        <NavLink to={''}><li>Students</li></NavLink>
                         <NavLink to={'/EventPage/RegisteredList'}><li>Colleges</li></NavLink>
-                        <NavLink to={'/EventPage/RegisteredList'}><li>Validate Colleges</li></NavLink>
+                        <NavLink to={'/AdminDashboard/ValidateCollege'}><li>Validate Colleges</li></NavLink>
                         <li onClick={handleMenuOption}>Logout</li>
                     </ul>
                 </div>

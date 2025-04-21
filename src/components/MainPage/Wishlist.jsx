@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './Wishlist.css'
 import { useEffect } from 'react'
 import WishlistItem from './WishlistItem'
+import { div, h1 } from 'framer-motion/client'
 
 const Wishlist = () => {
   const [wishlist,setWishlist] = useState([])
@@ -37,13 +38,19 @@ const Wishlist = () => {
   }
 
   return (
-    <div className='wishlist common-blurbg'>
-      {
-        wishlist.map((item)=>(
+    
+      wishlist.length>0 ?
+        <div className='wishlist common-blurbg'>
+        {wishlist.map((item)=>(
           <WishlistItem item={item}/>
-        ))
-      }
-    </div>
+        ))}
+        </div>
+        :
+        <div className="no-element common-blurbg">
+
+          <h1>No Element Present</h1>
+        </div>
+      
   )
 }
 

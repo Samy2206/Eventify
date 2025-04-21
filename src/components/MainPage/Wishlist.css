@@ -1,3 +1,10 @@
 .wishlist{
     min-height: calc(100vh - 56px);
 }
+.no-element{
+    min-height: calc(100vh - 56px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

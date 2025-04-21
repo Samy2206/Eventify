@@ -21,7 +21,19 @@
     border-radius: 15px;
     border: 1px solid;
     background: inherit;
+    color: black;
 }
+
+.register-event .wrapper select option{
+    background-color: black;
+    color: white;
+}
+
+
+.register-event .wrapper input:disabled{
+    color: rgb(67, 67, 67);
+}
+
 
 .register-event .wrapper div{
     width: 100%;

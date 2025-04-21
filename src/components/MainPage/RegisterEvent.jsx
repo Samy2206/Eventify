@@ -36,6 +36,10 @@ const RegisterEvent = () => {
         const student = data.student
         setEmail(student.email)
         setName(student.name)
+        if(student.collegeName)
+            setCollegeName(student.collegeName)
+        if(student.mobileNo)
+            setMobileNo(student.mobileNo)
 
     }
 
@@ -90,6 +94,8 @@ const RegisterEvent = () => {
          const data = await response.json()
 
          if(!response.ok)
+            alert('Registration already exists')
+            Navigate('/EventPage')
             return console.log("Error while sending request:",data.message)
 
 
@@ -151,8 +157,8 @@ const RegisterEvent = () => {
                 <h4>Recommendation:</h4>
                 <select name="recommendation" id="recommendation" value={recommendation} onChange={(e)=>setRecommendation(e.target.value)}>
                     {/* <option value="Select">Select</option> */}
-                    <option value="Yes">Yes</option>
                     <option value="No">No</option>
+                    <option value="Yes">Yes</option>
                 </select>
                 {recommendation === 'Yes' &&<>
                 <input style={{marginTop:'10px'}} type="file" name="recommendationLetter" id="" accept='image/*,.pdf' onChange={handleChange}/>

@@ -11,22 +11,25 @@ body {
   padding: 0;
   display: flex;
   flex-direction: column;
-  background: #3a1c71; /* fallback for old browsers */
+  /* background: #3a1c71; 
   background: -webkit-linear-gradient(
     to right,
     #ffaf7b,
     #d76d77,
     #3a1c71
-  ); /* Chrome 10-25, Safari 5.1-6 */
+  ); 
   background: linear-gradient(
     to right,
     #ffaf7b,
     #d76d77,
     #3a1c71
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background-size: cover;
+  ); */
+  background: #ad0202;
+  background: linear-gradient(180deg, rgba(173, 2, 2, 1) 0%, rgba(33, 29, 29, 1) 100%);
+background-size: cover;
   background-attachment: fixed;
   font-family: Arial, sans-serif;
+  color: wheat;
 }
 
 /* Flex container for about page */

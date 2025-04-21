@@ -18,6 +18,7 @@ import RegisteredList from "./components/MainPage/RegisteredList";
 import { path } from "framer-motion/client";
 import AdminLogin from "./components/AdminLogin";
 import Wishlist from "./components/MainPage/Wishlist";
+import ValidateCollege from "./components/AdminDashboard/ValidateCollege";
 
 function App() {
   const LayoutUnverified = () => {
@@ -150,6 +151,10 @@ function App() {
         {
           path:'',
           element:''
+        },
+        {
+          path:'ValidateCollege',
+          element:<ValidateCollege/>
         }
       ]
     }

@@ -20,18 +20,7 @@
   width: 100px;
   height: 100px;
   background: #3a1c71; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to left,
-    #ffaf7b,
-    #d76d77,
-    #3a1c71
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to left,
-    #ffaf7b,
-    #d76d77,
-    #3a1c71
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(90deg, rgba(173, 2, 2, 1) 0%, rgba(33, 29, 29, 1) 100%);
 
   border-radius: 50%;
   display: flex;

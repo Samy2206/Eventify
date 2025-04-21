@@ -95,8 +95,13 @@ align-items: center;
     /* max-width: 300px;  */
     padding: 10px;
     font-size: 16px;
+    color: black;
     border-radius: 15px;
     border: 1px solid;
     background: inherit;
   
+}
+.details-page select option{
+    background-color: black;
+    color: white;
 }

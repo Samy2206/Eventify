@@ -114,7 +114,7 @@ const WishlistItem = ({ item }) => {
 
     return (
         <div className="wishlist-wrapper">
-
+            
         <div className='wishlist-item common-inner-blur'>
             <h3>{event.eventName}</h3>
             <h3>{event.date}</h3>

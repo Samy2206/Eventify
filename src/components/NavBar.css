@@ -11,11 +11,11 @@
 
 a {
   text-decoration: none;
-  color: black;
+  color: wheat;
 }
 
 a:visited {
-  color: black;
+  color: wheat;
 }
 
 .NavBar_Container {
@@ -24,7 +24,9 @@ a:visited {
   align-items: center;
   width: 100%;
   height: 56px;
-  background: linear-gradient(to right, #FFAF7B, #D76D77, #3A1C71);
+
+  background: #ad0202;
+  background: linear-gradient(180deg, rgba(173, 2, 2, 1) 0%, rgba(33, 29, 29, 1) 100%);
   position: fixed;
   top: 0;
   left: 0;
@@ -35,7 +37,7 @@ a:visited {
 .logo {
   font-family: "LogoName";
   font-size: 40px;
-  color: black;
+  color: wheat;
 }
 
 ul {
@@ -53,7 +55,7 @@ ul {
   text-align: center;
   font-weight: bold;
   padding: 3px;
-  border: 1px solid black;
+  border: 1px solid white;
   border-radius: 10px;
   padding-top: 10px;
 }
@@ -68,9 +70,9 @@ ul {
   font-size: 15px;
   padding: 3px;
   background: inherit;
-  border: 1px solid black;
+  border: 1px solid white;
   outline: none;
-  color: black;
+  color: wheat;
   cursor: pointer;
   padding: 5px;
   border-radius: 10px;

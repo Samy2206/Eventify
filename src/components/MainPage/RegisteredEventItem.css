@@ -90,7 +90,7 @@
   
 .blur-pending{
     background: rgba(255, 255, 255, 0.2); /* Transparent background */
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid white;
     backdrop-filter: blur(10px); /* Frosted glass effect */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
     padding: 20px;
@@ -99,7 +99,7 @@
 
 .blur-approved{
     background: rgba(30, 247, 30, 0.2); /* Transparent background */
-    border: 1px solid rgba(0, 255, 94, 0.776);
+    border: 1px solid white;
     backdrop-filter: blur(10px); /* Frosted glass effect */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
     padding: 20px;
@@ -108,7 +108,7 @@
 
 .blur-rejected{
     background: rgba(239, 0, 0, 0.2); /* Transparent background */
-    border: 1px solid rgba(184, 0, 0, 0.776);
+    border: 1px solid white;
     backdrop-filter: blur(10px); /* Frosted glass effect */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
     padding: 20px;

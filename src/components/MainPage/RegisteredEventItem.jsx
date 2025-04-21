@@ -284,9 +284,10 @@ const RegisteredEventItem = ({ request }) => {
         const yStart = imgY + imgSize + 6;
         doc.setFont("helvetica", "normal");
         doc.setFontSize(10);
-        doc.text(`Date: ${event.date}`, centerX, yStart, { align: "center" });
-        doc.text(`Time: ${event.time}`, centerX, yStart + 5, { align: "center" });
-        doc.text(`Venue: ${event.venue}`, centerX, yStart + 10, { align: "center" });
+        doc.text(`Name: ${student.name}`, centerX, yStart, { align: "center" });
+        doc.text(`Date: ${event.date}`, centerX, yStart+5, { align: "center" });
+        doc.text(`Time: ${event.time}`, centerX, yStart + 10, { align: "center" });
+        doc.text(`Venue: ${event.venue}`, centerX, yStart + 15, { align: "center" });
 
         // Generate white-on-transparent QR Code
         try {

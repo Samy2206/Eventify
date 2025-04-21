@@ -92,6 +92,38 @@ const getDetails = async (req, res) => {
   }
 }
 
+const getCollegeList = async (req, res) => {
+  try {
+    const college = await College.find().sort({ verified: -1, createdAt: -1 })
+    res.status(200).json({ success: true, college })
+  } catch (e) {
+    console.log("Error fetching college list")
+    return res.status(500).json({ success: false, message: 'Internal server error', e })
+  }
+}
+
+const changeStatus = async (req, res) => {
+  try {
+    const college = await College.findOne({ uid: req.params.collegeUid })
+
+    if (!college) {
+      return res.status(404).json({ success: false, message: 'College not found' })
+    }
+
+    const updatedCollege = await College.findOneAndUpdate(
+      { uid: req.params.collegeUid },
+      { $set: { verified: !college.verified } },
+      { new: true }
+    )
+
+    return res.status(200).json({ success: true, college: updatedCollege })
+  } catch (e) {
+    console.log("Error changing status: ", e)
+    return res.status(500).json({ success: false, message: 'Internal Server Error', e })
+  }
+}
 
 
-module.exports = {registerCollege,loginCollege,setDetails,verifyCollege,getDetails}
+
+
+module.exports = {registerCollege,loginCollege,setDetails,verifyCollege,getDetails,getCollegeList,changeStatus}

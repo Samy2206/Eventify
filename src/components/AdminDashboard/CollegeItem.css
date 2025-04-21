@@ -1,0 +1,57 @@
+.college-item .name-email{
+    display: flex;
+    justify-content:space-around
+}
+.college-item .name-email div{
+    flex:1;
+}
+.college-item{
+    width: 70vw;
+    color: black;
+}
+.college-item a{
+    text-decoration: underline;
+    color: black;
+}
+
+.college-item .name-email div{
+    height: 150px;
+}
+
+.college-item .admin-details{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.college-item .admin-details div{
+    flex: 1;   
+}
+
+.college-item .address{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.college-item .button{
+height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.college-item .button button{
+
+    padding: 5px;
+    background-color: inherit;
+    border-radius: 15px;
+ 
+}
+
+.college-item .button button:hover{
+    background-color: rgba(255, 255, 255, 0.384);
+    box-shadow: 1px 1px 3px white;
+}

@@ -13,6 +13,11 @@ width: 70vw;
     border: 1px solid black;
 
 }
+
+.wishlist-item button:hover{
+    box-shadow: 1px 1px 4px white;
+
+}
  
 .wishlist-item .button{
     display: flex;
